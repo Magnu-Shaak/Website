@@ -6,11 +6,30 @@
 </head>
 <body>
     <h1>To Do List</h1>
-    <div class="todo">
-        <input type="text" id="taskInput" placeholder="Type to add a task.">
-        <button class = "addTaskBtn">Add</button>
-        <ul class="todoList"></ul>
-        <li>Coffee</li>
+    <div class="todo-container">
+        <input type="text" placeholder="ex: Study for APUSH" maxlength=450 
+        id="todo-input">
+        <button type="button" onclick="addTask()">Add Task</button>
+        <ul id="todo-list">
+            <li>Coffee</li>
+        </ul>
+        <script>
+            const list = document.getElementById("todo-list");
+
+            function addTask() {
+                const userInput = document.getElementById("todo-input").value;
+                const list = document.getElementById("todo-list");
+                const newItem = document.createElement("li");
+
+                if (userInput === "") {
+                    return
+                }
+
+                newItem.textContent = userInput;
+                list.appendChild(newItem);
+                document.getElementById("todo-input").value = "";
+            }
+        </script>
     </div>
 </body>
 </html>
